@@ -1,13 +1,17 @@
 export interface Lead {
   id: string;
   name: string;
-  email?: string;
-  company?: string;
   position?: string;
-  linkedinUrl: string;
+  company: string;
+  linkedinUrl?: string;
+  email?: string;
+  phone?: string;
   status: LeadStatus;
-  createdAt: Date;
-  updatedAt: Date;
+  tags: string[];
+  notes?: string;
+  createdAt: string;
+  updatedAt: string;
+  lastContactDate?: string;
 }
 
 export enum LeadStatus {
@@ -16,7 +20,19 @@ export enum LeadStatus {
   RESPONDED = 'responded',
   QUALIFIED = 'qualified',
   CONVERTED = 'converted',
-  REJECTED = 'rejected',
+  LOST = 'lost',
+}
+
+export interface LeadFormData {
+  name: string;
+  position?: string;
+  company: string;
+  linkedinUrl?: string;
+  email?: string;
+  phone?: string;
+  status: LeadStatus;
+  tags: string[];
+  notes?: string;
 }
 
 export interface Campaign {
